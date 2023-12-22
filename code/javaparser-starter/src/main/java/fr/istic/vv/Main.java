@@ -34,7 +34,7 @@ public class Main {
             result.ifSuccessful(unit -> {
                 unit.accept(printer, null);
                 saveReportToFile(printer.getReport(), "CyclomaticComplexityReport.txt");
-                HistogramExample.generateHistogram(printer.getReport(), "CyclomaticComplexityHistogram.csv");
+                generateHistogram(printer.getReport(), "CyclomaticComplexityHistogram.txt");
             });
             return SourceRoot.Callback.Result.DONT_SAVE;
         });

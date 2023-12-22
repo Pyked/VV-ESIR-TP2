@@ -1,5 +1,6 @@
 package fr.istic.vv;
 
+<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,6 +27,24 @@ public class PublicElementsPrinter extends VoidVisitorWithDefaults<Void> {
     List<String>publicMethods=new ArrayList<>();
     List<String>fielsTab=new ArrayList<>();
     List<Integer>nbsCyclomatiqueTab=new ArrayList<>();
+=======
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import com.github.javaparser.ast.CompilationUnit;
+import com.github.javaparser.ast.body.*;
+import com.github.javaparser.ast.visitor.VoidVisitorWithDefaults;
+
+// This class visits a compilation unit and
+// prints all public enum, classes or interfaces along with their public methods
+public class PublicElementsPrinter extends VoidVisitorWithDefaults<Void> {
+    List<String>publicMethods=new ArrayList<>();
+    List<String>fielsTab=new ArrayList<>();
+>>>>>>> 2e0a3dbc148e0ab91c07c1e24d5e70a357217feb
     String retour="";
     String retour1="";
     
@@ -85,6 +104,7 @@ public class PublicElementsPrinter extends VoidVisitorWithDefaults<Void> {
         }
 
 
+<<<<<<< HEAD
    @Override
    public void visit(MethodDeclaration declaration, Void arg) {
     super.visit(declaration, arg);
@@ -166,6 +186,21 @@ private int calculateCyclomaticComplexity(MethodDeclaration method) {
     public List<String> getReport() {
         System.out.println(nbsCyclomatiqueTab);
         return report;
+=======
+    @Override
+    public void visit(MethodDeclaration declaration, Void arg) {
+        if (!declaration.isPublic())
+            return;
+        else{
+        publicMethods.add(declaration.getNameAsString());
+        //System.out.println(publicMethods.toString() );
+        }
+    }
+
+    public String getReport() {
+    retour+="this is the list of private fields"+fielsTab.toString()+",only:\n\t"+retour1; 
+        return retour;
+>>>>>>> 2e0a3dbc148e0ab91c07c1e24d5e70a357217feb
     }
 
     /*public String getReport() {
