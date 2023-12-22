@@ -11,6 +11,7 @@ import java.io.FileWriter;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 public class Main {
 
@@ -28,24 +29,33 @@ public class Main {
 
         SourceRoot root = new SourceRoot(file.toPath());
         PublicElementsPrinter printer = new PublicElementsPrinter();
-       
+
         root.parse("", (localPath, absolutePath, result) -> {
             result.ifSuccessful(unit -> {
                 unit.accept(printer, null);
-                saveReportToFile(printer.getReport(),"Test_rapport.txt");
-                //System.out.println(printer.getReport());
-               
+                saveReportToFile(printer.getReport(), "CyclomaticComplexityReport.txt");
+                HistogramExample.generateHistogram(printer.getReport(), "CyclomaticComplexityHistogram.csv");
             });
             return SourceRoot.Callback.Result.DONT_SAVE;
         });
-        
     }
-    private static void saveReportToFile(String report, String fileName) {
+
+     private static void saveReportToFile(List<String> report, String fileName) {
         try (PrintWriter writer = new PrintWriter(new FileWriter(fileName))) {
-            writer.println(report);
+            // Write header
+            writer.println("Package\tClass\tMethod\t\t\t\tParameters\tCyclomatic Complexity");
+
+            // Write data
+            for (String entry : report) {
+                writer.println(entry);
+            }
+
             System.out.println("Report saved to: " + fileName);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+    
 }
+
+

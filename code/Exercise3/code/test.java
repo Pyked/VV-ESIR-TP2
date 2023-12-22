@@ -18,6 +18,8 @@ public class ExampleClass {
 
     // Méthode qui n'a pas de getter
     public double calculateSomething() {
+        if(true)
+            continue;
         return attribute2 * attribute3;
     }
 

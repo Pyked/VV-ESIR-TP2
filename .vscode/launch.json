@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "HistogramExample",
+            "request": "launch",
+            "mainClass": "fr.istic.vv.HistogramExample",
+            "projectName": "javaparser-starter"
+        },
+        {
+            "type": "java",
             "name": "Current File",
             "request": "launch",
             "mainClass": "${file}"
@@ -16,7 +23,9 @@
             "request": "launch",
             "mainClass": "fr.istic.vv.Main",
             "projectName": "javaparser-starter",
-            "args": ["/home/istic/VV-ESIR-TP2/code/Exercise3/code"]
+            "args": [
+                "/home/istic/VV-ESIR-TP2/code/Exercise3/code"
+            ]
         }
     ]
 }
