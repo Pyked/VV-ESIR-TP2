@@ -62,18 +62,18 @@ int c = 30;
 
 
 if (a > 0) {
-if (b > 0) {
-if (c > 0) {
-System.out.println("Tous les nombres sont positifs.");
+   if (b > 0) {
+      if (c > 0) {
+             System.out.println("Tous les nombres sont positifs.");
+     } else {
+          System.out.println("c est négatif.");
+      }
+    } else {
+       System.out.println("b est négatif.");
+      }
 } else {
-System.out.println("c est négatif.");
-}
-} else {
-System.out.println("b est négatif.");
-}
-} else {
-System.out.println("a est négatif.");
-}
+    System.out.println("a est négatif.");
+  }
 }
 }
 
