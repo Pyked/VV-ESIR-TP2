@@ -1,5 +1,14 @@
-# Code of your exercise
+Exercice3: extending pmd designer
+- Après avoir installer Javafx et pmd designer , on crée une rule avec l’expression Xpath suivante :
+//IfStatement[count(ancestor::IfStatement) >= 2 ] pour vérifier qu’un nœud if de l’ AST n’a pas plus de 2 ancêtres
+- puis en ajouteant les autres proriétés au fichier xml, on génère la regle.
 
+
+
+
+
+
+- la rule donne :
 <ruleset name="Mon Ruleset Personnalisé"
 xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
