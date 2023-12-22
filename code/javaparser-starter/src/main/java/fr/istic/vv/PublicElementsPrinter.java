@@ -42,7 +42,7 @@ public class PublicElementsPrinter extends VoidVisitorWithDefaults<Void> {
     @Override
     public void visit(MethodDeclaration declaration, Void arg) {
         if(!declaration.isPublic()) return;
-        System.out.println("  " + declaration.getDeclarationAsString(true, tue));
+        System.out.println("  " + declaration.getDeclarationAsString(true, true));
     }
 
 }
